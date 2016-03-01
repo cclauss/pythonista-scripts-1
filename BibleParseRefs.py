@@ -42,6 +42,12 @@ def parse_refs(bible_reference):
     ...     {'book': 'Mark', 'chapter': 7, 'verses': '4-6'},
     ...     {'book': 'Mark', 'chapter': 8, 'verses': '3-6,10'}]
     True
+ 
+    >>> parse_refs('Mark 1:1-4;5;8') == [
+    ...     {'book': 'Mark', 'chapter': 1, 'verses': '1-4', },
+    ...     {'book': 'Mark', 'chapter': 5},
+    ...     {'book': 'Mark', 'chapter': 8}]
+    True
     '''
     ref_list = []  # build up a list of dicts
     prev_book = ''
