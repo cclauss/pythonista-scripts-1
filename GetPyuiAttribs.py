@@ -4,7 +4,6 @@
 #---Author: coomlata1
 #---Created: 02/19/2017
 #---Last Modified: 02/27/2017
-
 #---Purpose: This Pythonista script allows the selection of a 
     pyui file from any folder in the Pythonista documents 
     directory. Once selected, the script mines the attributes 
@@ -15,11 +14,9 @@
     file to be merged into a single py file. The attributes 
     are displayed in the console and written to the clipboard 
     for easy copying to the py script.
-
 #---Contributions: The idea for this script came from a 
     thread on the Pythonista forum here:
     'https://forum.omz-software.com/topic/989/any-ui-module-tutorials-out-there/6'
-
     Inspiration also came from the script GUI_Helper.py. 
     Thanks to @nekotaroneko for GUI_Helper.py available here:
     'https://github.com/nekotaroneko/GUI_Helper'
@@ -28,7 +25,7 @@
     Gui_Helper.py comes from the script 'File Picker.py' by
     @omz at 'https://gist.github.com/e3433ebba20c92b63111'
 ''' 
-import json, pprint, clipboard, os
+import json, clipboard, os, console, threading
 
 # file_picker code
 def file_picker(title=None, root_dir=None, multiple=False,
@@ -37,7 +34,7 @@ def file_picker(title=None, root_dir=None, multiple=False,
   from objc_util import ObjCInstance, ObjCClass
   from operator import attrgetter
   import functools
-  import ftplib, re
+  import re
 
   class TreeNode (object):
     def __init__(self):
@@ -468,8 +465,7 @@ def main():
   clipboard.set('')
   clipboard.set(attribs)
   
-  print attribs
+  print(attribs)
   console.hud_alert('Attributes Successfully Copied to Clipboard', 'success', 2)
 if __name__ == '__main__':
   main()
-
